@@ -1,0 +1,40 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/customers']">
+    <mat-icon>list</mat-icon>
+  </a>
+</div>
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit(bookForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Customer id " formControlName="Customer_id"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!bookForm.get('Customer_id').valid && bookForm.get('Customer_id').touched">Please enter Customer ID</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Customer Name" formControlName="Customer_name"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!bookForm.get('Customer_name').valid && bookForm.get('Customer_name').touched">Please enter Customer Name</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="Customer_email"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!bookForm.get('Customer_email').valid && bookForm.get('Customer_email').touched">Please enter Book Author</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Joined Year" formControlName="Joined_year"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!bookForm.get('Joined_year').valid && bookForm.get('Joined_year').touched">Please enter Published Year</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!bookForm.valid" mat-raised-button color="primary">
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+</form>
